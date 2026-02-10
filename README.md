@@ -126,9 +126,9 @@ from prefect import flow, taskfrom snowflake.snowpark import Sessionimport panda
 Use internal stages for secure, fast ingestion.
 
 Logical, predictable folder structure:
-
+```
 @my_stage/data/2026/01/01/
-
+```
 
 Store JSON, CSV, or Parquet as needed.
 
@@ -138,7 +138,7 @@ Patterns:
 
 - Schema enforcement via Snowpark DataFrames
 - Column derivations
-- UDF / Vectorized Python when required
+- UDF / Vectorised Python when required
 - Hybrid SQL + Snowpark when useful
 
 ## Tips
