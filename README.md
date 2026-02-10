@@ -77,7 +77,7 @@ export PREFECT_API_URL=...export PREFECT_API_KEY=...prefect deploy --all
 Place Snowflake credentials in .env or a dedicated env.snowflake.example.
 
 ### Snowflake Credentials
-
+```
 SNOWFLAKE_ACCOUNT=
 
 SNOWFLAKE_USER=
@@ -91,22 +91,22 @@ SNOWFLAKE_WAREHOUSE=
 SNOWFLAKE_DATABASE=
 
 SNOWFLAKE_SCHEMA=
-
+```
 
 
 ### Optional Private Key Auth
-
+```
 SNOWFLAKE_PRIVATE_KEY_PATH=
 
 SNOWFLAKE_PRIVATE_KEY_PASSPHRASE=
-
+```
 
 ### Prefect (optional)
-
+```
 PREFECT_API_URL=
 
 PREFECT_API_KEY=
-
+```
 
 ## Snowflake Session Configuration
 
