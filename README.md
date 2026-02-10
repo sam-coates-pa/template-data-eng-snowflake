@@ -149,11 +149,14 @@ Keep transformations deterministic and idempotent.
 
 
 Loading – MERGE or Overwrite
+
 Two standard options:
+
 1) Overwrite (full rebuild)
 ```bash
-Pythondf.write.mode("overwrite").save_as_table("DB.SCHEMA.TABLE")Show more lines
+Pythondf.write.mode("overwrite").save_as_table("DB.SCHEMA.TABLE")
 ```
+
 3) Incremental MERGE
 Ideal for upserts and CDC‑style patterns.
 ```bash
