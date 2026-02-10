@@ -151,10 +151,14 @@ Keep transformations deterministic and idempotent.
 Loading – MERGE or Overwrite
 Two standard options:
 1) Overwrite (full rebuild)
+```bash
 Pythondf.write.mode("overwrite").save_as_table("DB.SCHEMA.TABLE")Show more lines
-2) Incremental MERGE
+```
+3) Incremental MERGE
 Ideal for upserts and CDC‑style patterns.
-SQLMERGE INTO target tUSING source sON t.id = s.idWHEN MATCHED THEN UPDATE SET ...WHEN NOT MATCHED THEN INSERT (...);Show more lines
+```bash
+MERGE INTO target t USING source sON t.id = s.idWHEN MATCHED THEN UPDATE SET ...WHEN NOT MATCHED THEN INSERT (...);
+```
 Modeling tips
 
 Separate staging, transform, and publish layers.
@@ -164,21 +168,27 @@ Use clustering on large analytic tables.
 ## CI/CD (optional examples)
 
 CI: lint + format + tests
+
 Snowflake deployments via Makefile or GitHub Actions
+
 Optional Prefect deployments when flows/ changes
 
 
 ## Testing & Quality
 
 Unit tests for session, loader, transformer modules
+
 Data tests: schema + row count checks
+
 Pre‑commit: flake8, black, pytest
 
 
 ## Operations
 
 Observe via Prefect logs, Snowflake query history
+
 Cost controls: warehouse size, auto‑suspend, clustering
+
 Monitoring failures: Prefect alerts, Slack/SNS integrations
 
 
