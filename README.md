@@ -55,11 +55,11 @@ Shellpython flows/full_pipeline.pyShow more lines
 
 Shellexport PREFECT_API_URL=...export PREFECT_API_KEY=...prefect deploy --allShow more lines
 
-🔐 Environment Variables
+## Environment Variables
 Place Snowflake credentials in .env or a dedicated env.snowflake.example.
-##############################################
-# Snowflake Credentials
-##############################################
+
+### Snowflake Credentials
+
 SNOWFLAKE_ACCOUNT=
 SNOWFLAKE_USER=
 SNOWFLAKE_PASSWORD=
