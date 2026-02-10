@@ -8,13 +8,13 @@ Use this as a GitHub Template Repository to give teams a fast, consistent starti
 
 ## What's Included
 
-End‑to‑end ELT flow: Extract → Stage → Snowpark Transform → Load Table
+- End‑to‑end ELT flow: Extract → Stage → Snowpark Transform → Load Table
 
-Core modules: Session builder, staged file loader, Snowpark transformer, table loader
+- Core modules: Session builder, staged file loader, Snowpark transformer, table loader
 
-Extras: Optional external S3 stages, dbt‑snowflake support, private key authentication
+- Extras: Optional external S3 stages, dbt‑snowflake support, private key authentication
 
-Dev experience: Config files, Makefile, tests, CI workflow, .env.example, Prefect deploys
+- Dev experience: Config files, Makefile, tests, CI workflow, .env.example, Prefect deploys
 
 
 
@@ -54,9 +54,9 @@ Makefile                        # common developer commands
 
 ## Quick Start
 
-Create a new repo using “Use this template”.
-Populate .env using the provided .env.example (never commit real secrets).
-Install dependencies:
+- Create a new repo using “Use this template”.
+- Populate .env using the provided .env.example (never commit real secrets).
+- Install dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -136,19 +136,19 @@ Store JSON, CSV, or Parquet as needed.
 ## Transform (Snowpark)
 Patterns:
 
-Schema enforcement via Snowpark DataFrames
-Column derivations
-UDF / Vectorized Python when required
-Hybrid SQL + Snowpark when useful
+- Schema enforcement via Snowpark DataFrames
+- Column derivations
+- UDF / Vectorized Python when required
+- Hybrid SQL + Snowpark when useful
 
 ## Tips
 
-Use Snowpark for Python‑first teams.
-Prefer SQL for set‑based logic.
-Keep transformations deterministic and idempotent.
+- Use Snowpark for Python‑first teams.
+- Prefer SQL for set‑based logic.
+- Keep transformations deterministic and idempotent.
 
 
-Loading – MERGE or Overwrite
+### Loading – MERGE or Overwrite
 
 Two standard options:
 
@@ -157,15 +157,16 @@ Two standard options:
 Pythondf.write.mode("overwrite").save_as_table("DB.SCHEMA.TABLE")
 ```
 
-3) Incremental MERGE
+2) Incremental MERGE
 Ideal for upserts and CDC‑style patterns.
 ```bash
-MERGE INTO target t USING source sON t.id = s.idWHEN MATCHED THEN UPDATE SET ...WHEN NOT MATCHED THEN INSERT (...);
+MERGE INTO target t USING source s ON t.id = s.idWHEN MATCHED THEN UPDATE SET ...WHEN NOT MATCHED THEN INSERT (...);
 ```
-Modeling tips
 
-Separate staging, transform, and publish layers.
-Use clustering on large analytic tables.
+### Modeling tips
+
+- Separate staging, transform, and publish layers.
+- Use clustering on large analytic tables.
 
 
 ## CI/CD (optional examples)
