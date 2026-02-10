@@ -9,12 +9,17 @@ Use this as a GitHub Template Repository to give teams a fast, consistent starti
 ## What's Included
 
 End‑to‑end ELT flow: Extract → Stage → Snowpark Transform → Load Table
+
 Core modules: Session builder, staged file loader, Snowpark transformer, table loader
+
 Extras: Optional external S3 stages, dbt‑snowflake support, private key authentication
+
 Dev experience: Config files, Makefile, tests, CI workflow, .env.example, Prefect deploys
 
 
+
 ## Reference Architecture
+```
 Source → Extract (Python)
              │
              ▼
@@ -28,16 +33,23 @@ Source → Extract (Python)
              │
              ▼
         Prefect Orchestration
-
+```
 
 ## Project Layout (key folders)
 flows/                          # Prefect flows
+
 src/snowflake/                  # Session, loader, transformer modules
+
 config/                         # dev/prod environment configs
+
 .github/workflows/              # CI pipeline
+
 .env.example                    # environment variable template
+
 requirements.txt                # Python dependencies
+
 Makefile                        # common developer commands
+
 
 
 ## Quick Start
