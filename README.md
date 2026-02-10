@@ -198,13 +198,13 @@ Monitoring failures: Prefect alerts, Slack/SNS integrations
 
 ## Checklist Before Production
 
- Roles & least‑privilege permissions
- Warehouse auto‑suspend & sizing rules
- Proper stage cleanup strategy
- Error handling & retries in flows
- Clear staging → transform → publish layers
- Secret management (no hard‑coded passwords)
- CI pipelines passing
+ - Roles & least‑privilege permissions
+ - Warehouse auto‑suspend & sizing rules
+ - Proper stage cleanup strategy
+ - Error handling & retries in flows
+ - Clear staging → transform → publish layers
+ - Secret management (no hard‑coded passwords)
+ -  CI pipelines passing
 
 
 ## License & Contributions
