@@ -66,8 +66,8 @@ Place Snowflake credentials in .env or a dedicated env.snowflake.example.
 
 ### Snowflake Credentials
 
-SNOWFLAKE_ACCOUNT=
-SNOWFLAKE_USER=
+SNOWFLAKE_ACCOUNT= ,
+SNOWFLAKE_USER= ,
 SNOWFLAKE_PASSWORD=
 SNOWFLAKE_ROLE=
 SNOWFLAKE_WAREHOUSE=
