@@ -1,4 +1,4 @@
-# ❄️ Snowflake Full ELT Template
+# ❄️ Snowflake Data Engineering Template
 
 A practical, production‑minded template for building Snowflake‑native ELT pipelines using Snowpark, the Snowflake Python Connector, and Prefect 2.x orchestration.
 It provides ready‑made patterns for internal stage ingestion, Snowpark transformations, table loading (MERGE / overwrite), environment‑driven config, and CI‑friendly project scaffolding.
