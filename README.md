@@ -3,7 +3,7 @@
 A practical, production‑minded template for building Snowflake‑native ELT pipelines using Snowpark, the Snowflake Python Connector, and Prefect 2.x orchestration.
 It provides ready‑made patterns for internal stage ingestion, Snowpark transformations, table loading (MERGE / overwrite), environment‑driven config, and CI‑friendly project scaffolding.
 
-> Use this as a GitHub Template Repository to give teams a fast, consistent starting point for Snowflake ELT delivery.
+> Use this as a GitHub Template Repository to proivde a fast, consistent starting point for Snowflake ELT delivery.
 
 
 ## What's Included
