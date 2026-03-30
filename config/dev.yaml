@@ -1,0 +1,45 @@
+environment: dev
+
+snowflake:
+  account: "<your-account>.eu-west-2.aws"
+  user: "DEV_USER"
+  role: "DEV_ROLE"
+  warehouse: "DEV_WH"
+  database: "DEV_DB"
+  schema: "PUBLIC"
+  authenticator: "snowflake"
+  private_key_path: "./keys/dev_rsa_key.p8"  # optional if using keypair auth
+  password: "CHANGE_ME"                    # or reference Vault/Secrets Manager
+
+paths:
+  local_data_path: "data/example_data.parquet"
+  staging_directory: "@DEV_DB.PUBLIC.DEV_STAGE"
+  ingestion_stage: "@DEV_DB.PUBLIC.INGEST_STAGE"
+
+pipelines:
+  enabled_steps:
+    - connect
+    - stage_file
+    - copy_into_table
+    - validate_row_count
+    - cleanup_temp_files
+
+data_load:
+  target_table: "RAW_EVENTS"
+  file_format:
+    type: "JSON"  # PARQUET / CSV / JSON depending on your template
+    strip_outer_array: true
+    compression: "AUTO"
+
+resources:
+  warehouse_size: "XSMALL"
+  auto_suspend: 60
+  auto_resume: true
+
+logging:
+  level: "INFO"
+  format: "json"
+
+testing:
+  run_unit_tests: true
+  test_data_path: "tests/data/sample.parquet"
