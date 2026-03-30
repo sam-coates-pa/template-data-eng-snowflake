@@ -1,0 +1,59 @@
+environment: prod
+
+snowflake:
+  account: "<your-account>.eu-west-2.aws"
+  user: "PROD_USER"
+  role: "PROD_ROLE"
+  warehouse: "PROD_WH"
+  database: "PROD_DB"
+  schema: "PUBLIC"
+
+  # Security best practice: DO NOT commit production credentials
+  authenticator: "externalbrowser"        # ok to use
+  private_key_path: "./keys/prod_key.p8"  # if using keypair auth
+  password: "USE_SECRET_MANAGER"          # only if needed
+
+paths:
+  local_data_path: "data/example_data.parquet"
+  staging_directory: "@PROD_DB.PUBLIC.PROD_STAGE"
+  ingestion_stage: "@PROD_DB.PUBLIC.INGEST_STAGE"
+
+pipelines:
+  enabled_steps:
+    - connect
+    - stage_file
+    - copy_into_table
+    - validate_row_count
+    - archive_loaded_files
+    - cleanup_temp_files
+
+data_load:
+  target_table: "RAW_EVENTS"
+  file_format:
+    type: "PARQUET"       # often recommended for prod
+    compression: "SNAPPY"
+    binary_as_text: false
+
+resources:
+  warehouse_size: "SMALL"  # predictable performance
+  auto_suspend: 300        # prod jobs may be longer
+  auto_resume: true
+
+logging:
+  level: "INFO"
+  format: "json"
+  enable_query_history: true
+
+alerting:
+  slack_webhook: "USE_SECRET_MANAGER"
+  on_failure: true
+  on_row_count_mismatch: true
+
+governance:
+  require_masking_policies: false
+  require_row_access_policies: false
+
+testing:
+  run_unit_tests: false
+  sample_data_path: "tests/data/sample.parquet"
+``
