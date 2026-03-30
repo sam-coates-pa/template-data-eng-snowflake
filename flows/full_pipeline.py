@@ -1,4 +1,3 @@
-
 from prefect import flow, task
 import snowflake.connector
 
