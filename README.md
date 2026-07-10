@@ -79,6 +79,29 @@ python flows/full_pipeline.py
 ```bash
 export PREFECT_API_URL=...export PREFECT_API_KEY=...prefect deploy --all
 ```
+Option 1: Prefect Execution
+
+Run locally
+```bash
+python flows/full_pipeline.py
+```
+(Optional) Deploy to Prefect Cloud
+```bash
+export PREFECT_API_URL="your_prefect_api_url"
+export PREFECT_API_KEY="your_prefect_api_key"
+prefect deploy --all
+```
+Option 2: Airflow Execution
+
+Define your local Airflow home directory
+```bash
+export AIRFLOW_HOME=$(pwd)
+```
+
+Run the DAG locally (requires Airflow 2.5+ and dag.test() in script)
+```bash
+python dags/full_pipeline_dag.py
+```
 
 ## Environment Variables
 Place Snowflake credentials in .env or a dedicated env.snowflake.example.
