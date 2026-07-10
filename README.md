@@ -972,13 +972,71 @@ Recommended structure for production projects:
 └── README.md
 ```
 
+
 ## Testing & Quality
 
-Unit tests for session, loader, transformer modules
+Quality assurance should be integrated throughout the development lifecycle and enforced through the CI/CD process described above.
 
-Data tests: schema + row count checks
+### Unit Testing
 
-Pre‑commit: flake8, black, pytest
+Implement unit tests for core modules including:
+
+- Snowflake session management
+- Configuration loading
+- Data extraction logic
+- File staging and loading
+- Snowpark transformations
+- Table loading and MERGE logic
+
+Example structure:
+
+```text
+tests/
+├── test_connector.py
+├── test_loader.py
+├── test_transformer.py
+└── test_flow.py
+```
+
+### Data Validation
+
+In addition to application testing, validate the quality of data moving through the pipeline.
+
+Common checks include:
+
+- Schema validation
+- Row count validation
+- Null value checks
+- Duplicate key detection
+- Referential integrity checks
+- Business rule validation
+
+Example:
+
+```python
+assert actual_row_count > 0
+assert expected_columns == actual_columns
+```
+
+### Integration Testing
+
+Where possible, execute tests against a dedicated Snowflake development environment to validate:
+
+- Authentication
+- Stage uploads
+- Snowpark transformations
+- Table creation and updates
+- End-to-end pipeline execution
+
+### Quality Standards
+
+The CI/CD pipeline should enforce:
+
+- Successful unit tests
+- Successful integration tests (where applicable)
+- Code formatting and linting checks
+- Pull request review requirements
+- Deployment validation checks
 
 
 ## Operations
