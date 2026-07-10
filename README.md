@@ -8,13 +8,13 @@ It provides ready‑made patterns for internal stage ingestion, Snowpark transfo
 
 ## What's Included
 
-- End‑to‑end ELT flow: Extract → Stage → Snowpark Transform → Load Table
+- **End‑to‑end ELT flow**: Extract → Stage → Snowpark Transform → Load Table
 
-- Core modules: Session builder, staged file loader, Snowpark transformer, table loader
+- **Core modules**: Session builder, staged file loader, Snowpark transformer, table loader
 
-- Extras: Optional external S3 stages, dbt‑snowflake support, private key authentication
+- **Extras**: Optional external S3 stages, dbt‑snowflake support, private key authentication
 
-- Dev experience: Config files, Makefile, tests, CI workflow, .env.example, Prefect deploys
+- **Dev experience**: Config files, Makefile, tests, CI workflow, .env.example, Prefect deploys
 
 
 
