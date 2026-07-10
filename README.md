@@ -38,10 +38,16 @@ Source → Extract (Python)
 ## Project Layout (key folders)
 ```
 flows/                          # Prefect flows
+      full_pipeline.py
 
-src/snowflake/                  # Session, loader, transformer modules
+modules/                        # Session, loader, transformer modules
+      connector.py
+      loader.py
+      transformer.py              
 
 config/                         # dev/prod environment configs
+      dev.yaml
+      prod.yaml
 
 .github/workflows/              # CI pipeline
 
