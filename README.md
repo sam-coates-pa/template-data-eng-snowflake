@@ -36,6 +36,7 @@ Source → Extract (Python)
 ```
 
 ## Project Layout (key folders)
+```
 flows/                          # Prefect flows
 
 src/snowflake/                  # Session, loader, transformer modules
@@ -49,7 +50,7 @@ config/                         # dev/prod environment configs
 requirements.txt                # Python dependencies
 
 Makefile                        # common developer commands
-
+```
 
 
 ## Quick Start
